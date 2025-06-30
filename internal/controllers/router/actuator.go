@@ -72,9 +72,14 @@ func (actuator routerActuator) GetOSResourceByID(ctx context.Context, id string)
 }
 
 func (actuator routerActuator) ListOSResourcesForAdoption(ctx context.Context, obj *orcv1alpha1.Router) (routerIterator, bool) {
-	if obj.Spec.Resource == nil {
-		return nil, false
+	if actuator.osClient == nil {
+    		fmt.Println("routerActuator: osClient is nil in ListOSResourcesForAdoption")
+    		return nil, false
 	}
+	if obj == nil || obj.Spec.Resource == nil {
+    		return nil, false
+	}
+
 
 	listOpts := routers.ListOpts{Name: getResourceName(obj)}
 	return actuator.osClient.ListRouter(ctx, listOpts), true

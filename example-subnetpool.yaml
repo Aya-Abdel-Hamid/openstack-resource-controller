@@ -1,0 +1,7 @@
+apiVersion: networking.example.com/v1alpha1
+kind: SubnetPool
+metadata:
+  name: my-subnetpool
+spec:
+  cidr: "2001:db8::/32"
+  description: "My IPv6 subnet pool"

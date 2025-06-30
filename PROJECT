@@ -5,6 +5,7 @@
 domain: k-orc.cloud
 layout:
 - go.kubebuilder.io/v4
+multigroup: true
 projectName: orc
 repo: github.com/k-orc/openstack-resource-controller
 resources:
